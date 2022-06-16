@@ -5,9 +5,10 @@ name = "pypi"
 
 [packages]
 django = "*"
-decouple = "*"
 black = "*"
 flake8 = "*"
+python-decouple = "*"
+pillow = "*"
 
 [dev-packages]
 

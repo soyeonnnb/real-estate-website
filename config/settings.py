@@ -28,7 +28,14 @@ DJANGO_APPS = [
     "django.contrib.staticfiles",
 ]
 
-PROJECT_APPS = []
+PROJECT_APPS = [
+    "complexes.apps.ComplexesConfig",
+    "core.apps.CoreConfig",
+    "posts.apps.PostsConfig",
+    "questions.apps.QuestionsConfig",
+    "sales.apps.SalesConfig",
+    "users.apps.UsersConfig",
+]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS
 
