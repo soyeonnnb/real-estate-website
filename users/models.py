@@ -40,7 +40,7 @@ class UserManager(BaseUserManager):
 
 
 # Create your models here.
-class User:
+class User(AbstractBaseUser, PermissionsMixin):
 
     """User Model"""
 
@@ -59,4 +59,4 @@ class User:
     REQUIRED_FIELDS = ["nickname"]  # 필수입력값
 
     def __str__(self):
-        return self.nickname
+        return self.email
