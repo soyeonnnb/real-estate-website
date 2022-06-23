@@ -36,8 +36,11 @@ PROJECT_APPS = [
     "sales.apps.SalesConfig",
     "users.apps.UsersConfig",
 ]
+THIRD_PARTY_APPS = [
+    "django_seed",
+]
 
-INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS
+INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
