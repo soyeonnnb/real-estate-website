@@ -69,4 +69,4 @@ class ComplexImageAdmin(admin.ModelAdmin):
 
     """Complex Image Admin Definition"""
 
-    list_display = ("complex",)
+    list_display = ("complex", "image", "description")

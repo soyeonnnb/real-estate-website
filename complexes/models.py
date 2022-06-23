@@ -60,7 +60,7 @@ class ComplexArea(TimeStampedModel):
     bath = models.IntegerField()
 
     def __str__(self):
-        return f"{self.complex} - {self.exclusive_private_area}"
+        return f"{self.complex} - {round(self.exclusive_private_area, 3)}"
 
 
 class ComplexSub(TimeStampedModel):
@@ -75,7 +75,7 @@ class ComplexSub(TimeStampedModel):
     apartment = models.IntegerField(null=False, blank=False)
     facing = models.CharField(max_length=10)
     latitude = models.FloatField()
-    logitude = models.FloatField()
+    longitude = models.FloatField()
 
     def __str__(self):
         return f"{self.complex_area.complex} - {self.building}"
@@ -94,4 +94,4 @@ class ComplexImage(TimeStampedModel):
         Complex, related_name="complex_image", on_delete=models.CASCADE
     )
     image = models.ImageField(upload_to=complex_directory_path)
-    desciption = models.TextField()
+    description = models.TextField()

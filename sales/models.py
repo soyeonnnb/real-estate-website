@@ -23,7 +23,7 @@ class Sale(TimeStampedModel):
         null=True,
     )
     address = models.TextField()
-    type = models.CharField(choices=TYPE_CHOICES, max_length=7, default=TYPE_SALE)
+    type = models.CharField(choices=TYPE_CHOICES, max_length=7)
     deposit = models.IntegerField(null=True, blank=True)
     amount = models.IntegerField()
     floor = models.IntegerField()

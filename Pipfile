@@ -9,6 +9,8 @@ black = "*"
 flake8 = "*"
 python-decouple = "*"
 pillow = "*"
+django-seed = "==0.2.2"
+faker = "*"
 
 [dev-packages]
 
