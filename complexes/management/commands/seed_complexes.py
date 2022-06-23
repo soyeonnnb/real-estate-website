@@ -1,11 +1,12 @@
-from datetime import timedelta
-from django.core.management import BaseCommand
-from django_seed import Seed
-from complexes import models
-from django.contrib.admin.utils import flatten
 import random
 from datetime import datetime, timedelta
+
+from django.contrib.admin.utils import flatten
+from django.core.management import BaseCommand
+from django_seed import Seed
 from faker import Faker
+
+from complexes import models
 
 
 class Command(BaseCommand):

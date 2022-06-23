@@ -1,16 +1,18 @@
-from django.core.management import BaseCommand
+import random
 from datetime import datetime, timedelta
+
+from django.contrib.admin.utils import flatten
+from django.core.management import BaseCommand
 from django_seed import Seed
 from faker import Faker
+
 from sales import models
-from django.contrib.admin.utils import flatten
 from complexes import models as complexes_models
-import random
 
 
 class Command(BaseCommand):
 
-    help = "매물을 생성합니다"
+    help = "이 명령어는 매물을 생성합니다"
 
     def add_arguments(self, parser):
         parser.add_argument(

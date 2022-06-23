@@ -1,7 +1,9 @@
+import random
+
 from django.core.management import BaseCommand
 from django_seed import Seed
+
 from complexes import models
-import random
 
 
 class Command(BaseCommand):
