@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+XX부동산
+{% endblock page_title %}
+
+
+{% block content %}
+<h2>최신 매물</h2>
+<a href="">최신 매물 더보기</a><br>
+{% for sale in sales %}
+{{sale.address}}<br>
+{% endfor %}
+{% endblock %}
