@@ -5,14 +5,14 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    path("", include("core.urls", namespace="core")),
-    path("complex/", include("complexes.urls", namespace="complexes")),
-    path("post/", include("posts.urls", namespace="posts")),
+    path("admin/", admin.site.urls),
+    path("complexes/", include("complexes.urls", namespace="complexes")),
+    path("posts/", include("posts.urls", namespace="posts")),
     path("questions/", include("questions.urls", namespace="questions")),
     path("sales/", include("sales.urls", namespace="sales")),
     path("users/", include("users.urls", namespace="users")),
     path("manage/", include("managements.urls", namespace="managements")),
-    path("admin/", admin.site.urls),
+    path("", include("core.urls", namespace="core")),
 ]
 
 if settings.DEBUG:

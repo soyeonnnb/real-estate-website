@@ -1,0 +1,25 @@
+<h2>관리자페이지</h2>
+
+<h3>complex_list</h3>
+{% for complex in complex_list %}
+{{complex.name}}<br>
+{% endfor %}
+<br><br>
+
+<h3>sale_list</h3>
+{% for sale in sale_list %}
+{{sale.address}}<br>
+{% endfor %}
+<br><br>
+
+<h3>post_list</h3>
+{% for post in post_list %}
+{{post.title}}
+{% endfor %}
+<br><br>
+
+<h3>question_list</h3>
+{% for question in question_list %}
+{{question.title}}
+{% endfor %}
+<br><br>
