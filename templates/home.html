@@ -7,6 +7,12 @@ XX부동산
 
 
 {% block content %}
+{% if user.is_authenticated %}
+<a href="">관리자 페이지</a>
+<a href="{% url 'users:logout' %}">로그아웃</a>
+{% else %}
+<a href="{% url 'users:login' %}">로그인</a>
+{% endif %}
 <h2>최신 매물</h2>
 <a href="">최신 매물 더보기</a><br>
 {% for sale in sales %}

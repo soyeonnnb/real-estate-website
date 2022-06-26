@@ -11,6 +11,7 @@ urlpatterns = [
     path("questions/", include("questions.urls", namespace="questions")),
     path("sales/", include("sales.urls", namespace="sales")),
     path("users/", include("users.urls", namespace="users")),
+    path("manage/", include("managements.urls", namespace="managements")),
     path("admin/", admin.site.urls),
 ]
 

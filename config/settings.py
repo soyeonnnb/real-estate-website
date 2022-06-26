@@ -35,6 +35,7 @@ PROJECT_APPS = [
     "questions.apps.QuestionsConfig",
     "sales.apps.SalesConfig",
     "users.apps.UsersConfig",
+    "managements.apps.ManagementsConfig",
 ]
 THIRD_PARTY_APPS = [
     "django_seed",
