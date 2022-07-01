@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_title %}
+매물목록
+{% endblock page_title %}
+
+{% block content %}
+<h3>
+    매물목록
+</h3>
+
+
+<div style="border:1px solid black">
+    <h4>검색</h4>
+    <form method="GET" action="" id="search_sale_form">
+        {% csrf_token %}
+        <div>
+            분류
+            <input name="type" type="checkbox" value="all" id="type_all">
+            <label for="type_all">전체</label>
+            <input name="type" type="checkbox" value="sale" id="type_sale" class="search-type-btn">
+            <label for="type_sale">매매</label>
+            <input name="type" type="checkbox" value="jeonse" id="type_jeonse" class="search-type-btn">
+            <label for="type_jeonse">전세</label>
+            <input name="type" type="checkbox" value="monthly" id="type_monthly" class="search-type-btn">
+            <label for="type_monthly">월세</label>
+        </div>
+        <div>
+            위치
+            <input name="address" type="checkbox" value="all" id="address_all">
+            <label for="address_all">전체</label>
+            <input name="address" type="checkbox" value="eomsa" id="address_eomsa" class="search-address-btn">
+            <label for="address_eomsa">엄사면</label>
+            <input name="address" type="checkbox" value="geumam" id="address_geumam" class="search-address-btn">
+            <label for="address_geumam">금암동</label>
+            <input name="address" type="checkbox" value="duma" id="address_duma" class="search-address-btn">
+            <label for="address_duma">두마면</label>
+        </div>
+        <div>
+            가격
+            <input name="price_from" type="number" value="0" min="0"> ~
+            <input name="price_to" type="number" value="1000000000" min="0">
+        </div>
+        <div>
+            입주가능일
+            <input type="date" name="date_from" id="date_from"> ~
+            <input type="date" name="date_to" id="date_to">
+        </div>
+        <input type="submit" value="초기화">
+        <input type="submit" value="검색">
+    </form>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>
+                번호
+            </th>
+            <th>
+                분류
+            </th>
+            <th>
+                단지
+            </th>
+            <th>
+                가격
+            </th>
+            <th>
+                입주 가능일
+            </th>
+            <th>
+                완료여부
+            </th>
+            <th>
+                상세보기
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for sale in sales %}
+        <tr>
+            <td>
+                {{sale.pk}}
+            </td>
+            <td>{% if sale.type == 'sale' %}
+                매매
+                {% elif sale.type == 'jeonse' %}
+                전세
+                {% else %}
+                월세
+                {% endif %}
+            </td>
+            <td>
+                {{sale.complex_sub}}
+            </td>
+            <td>
+                {{sale.amount}}
+            </td>
+            <td>
+                {{sale.available_date.year}}/{{sale.available_date.month}}
+            </td>
+            <td>
+                {% if sale.is_sold %}
+                완료
+                {% else %}
+                미완료
+                {% endif %}
+            </td>
+            <td>
+                <a href="">상세보기</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% include 'partials/paginator.html' %}
+
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'javascript/clickCheckInput.js' %}"></script>
+<script src="{% static 'javascript/changeDateInput.js' %}"></script>
+{% endblock javascript %}

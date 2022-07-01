@@ -1,0 +1,39 @@
+<!-- Paginator -->
+<div>
+    <ul>
+        <!-- 이전 페이지 -->
+        {% if page_obj.has_previous %}
+        <li>
+            <a href="?page={{ page_obj.previous_page_number}}">Previous</a>
+        </li>
+        {% else %}
+        <li>
+            <a>Previous</a>
+        </li>
+        {% endif %}
+
+
+        <!-- 페이지 링크들 -->
+        {% for n in page_obj.paginator.page_range %}
+        {% if page_obj.number == n %}
+        <li>
+            <span>{{ n }}</span>
+        </li>
+        {% elif n > page_obj.number|add:'-5' and n < page_obj.number|add:'5' %} <li>
+            <a href="?page={{ n }}">{{ n }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+
+            <!-- 다음 페이지 -->
+            {% if page_obj.has_next %}
+            <li>
+                <a href="?page={{page_obj_name.next_page_number}}">Next</a>
+            </li>
+            {% else %}
+            <li>
+                <a>Next</a>
+            </li>
+            {% endif %}
+    </ul>
+</div>

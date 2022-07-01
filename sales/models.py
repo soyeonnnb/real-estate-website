@@ -1,6 +1,8 @@
+import random
+
 from django.db import models
 from core.models import TimeStampedModel
-import random
+from django.core.validators import MinValueValidator
 
 
 class Sale(TimeStampedModel):
@@ -24,11 +26,13 @@ class Sale(TimeStampedModel):
     )
     address = models.TextField()
     type = models.CharField(choices=TYPE_CHOICES, max_length=7)
-    deposit = models.IntegerField(null=True, blank=True)
-    amount = models.IntegerField()
+    deposit = models.IntegerField(
+        null=True, blank=True, validators=[MinValueValidator(0)]
+    )
+    amount = models.IntegerField(validators=[MinValueValidator(0)])
     floor = models.IntegerField()
-    loan = models.IntegerField(default=0)
-    administrative_expense = models.IntegerField()
+    loan = models.IntegerField(default=0, validators=[MinValueValidator(0)])
+    administrative_expense = models.IntegerField(validators=[MinValueValidator(0)])
     available_date = models.DateField()
     description = models.TextField()
     one_description = models.TextField()

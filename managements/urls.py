@@ -14,6 +14,11 @@ urlpatterns = [
     path(
         "complexes/create_complex/",
         complexes_views.CreateComplexView.as_view(),
-        name="create_complex",
+        name="create_complexes",
+    ),
+    path(
+        "sales/sales_list/",
+        sales_views.SaleHomeView.as_view(),
+        name="sales_list",
     ),
 ]
