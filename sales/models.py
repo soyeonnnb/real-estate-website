@@ -24,7 +24,7 @@ class Sale(TimeStampedModel):
         on_delete=models.SET_NULL,
         null=True,
     )
-    address = models.TextField()
+    address = models.TextField(blank=True, null=True)
     type = models.CharField(choices=TYPE_CHOICES, max_length=7)
     deposit = models.IntegerField(
         null=True, blank=True, validators=[MinValueValidator(0)]

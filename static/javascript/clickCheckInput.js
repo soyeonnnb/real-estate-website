@@ -7,21 +7,27 @@ const addressAllBtn = document.querySelector("#address_all")
 const addressNotAllBtn = document.querySelectorAll(".search-address-btn")
 
 
+
 function clickAll(allBtn, notAllBtn){
-    if (allBtn.checked){
-        for (i=0;i<notAllBtn.length;i++){
-            notAllBtn[i].checked=true;
-        }
-    } else {
+    if (allBtn.classList.contains("search_all_checked")){
+        allBtn.classList.remove("search_all_checked");
+        allBtn.classList.add("search_all_notchecked");
         for (i=0;i<notAllBtn.length;i++){
             notAllBtn[i].checked=false;
+        }
+    } else {
+        allBtn.classList.remove("search_all_notchecked");
+        allBtn.classList.add("search_all_checked");
+        for (i=0;i<notAllBtn.length;i++){
+            notAllBtn[i].checked=true;
         }
     }
 }
 
 function clickNotAll(allBtn) {
-    if (allBtn.checked){
-        allBtn.checked = false;
+    if (allBtn.classList.contains("search_all_checked")){
+        allBtn.classList.remove("search_all_checked"); 
+        allBtn.classList.add("search_all_notchecked");
     }
 }
 

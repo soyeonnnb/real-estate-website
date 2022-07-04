@@ -39,6 +39,7 @@ class Complex(TimeStampedModel):
     company = models.CharField(max_length=30)
     latitude = models.FloatField()
     longitude = models.FloatField()
+    address = models.TextField()
 
     def __str__(self):
         return self.name

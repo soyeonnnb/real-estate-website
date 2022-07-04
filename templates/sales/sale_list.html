@@ -15,38 +15,24 @@
     <form method="GET" action="" id="search_sale_form">
         {% csrf_token %}
         <div>
-            분류
-            <input name="type" type="checkbox" value="all" id="type_all">
-            <label for="type_all">전체</label>
-            <input name="type" type="checkbox" value="sale" id="type_sale" class="search-type-btn">
-            <label for="type_sale">매매</label>
-            <input name="type" type="checkbox" value="jeonse" id="type_jeonse" class="search-type-btn">
-            <label for="type_jeonse">전세</label>
-            <input name="type" type="checkbox" value="monthly" id="type_monthly" class="search-type-btn">
-            <label for="type_monthly">월세</label>
+            분류<br>
+            <span id="type_all" class="search_all_checked">전체</span>
+            {{form.sale_type}}
         </div>
         <div>
-            위치
-            <input name="address" type="checkbox" value="all" id="address_all">
-            <label for="address_all">전체</label>
-            <input name="address" type="checkbox" value="eomsa" id="address_eomsa" class="search-address-btn">
-            <label for="address_eomsa">엄사면</label>
-            <input name="address" type="checkbox" value="geumam" id="address_geumam" class="search-address-btn">
-            <label for="address_geumam">금암동</label>
-            <input name="address" type="checkbox" value="duma" id="address_duma" class="search-address-btn">
-            <label for="address_duma">두마면</label>
+            위치<br>
+            <span id="address_all" class="search_all_checked">전체</span>
+            {{form.address}}
         </div>
         <div>
             가격
-            <input name="price_from" type="number" value="0" min="0"> ~
-            <input name="price_to" type="number" value="1000000000" min="0">
+            {{form.price_from}} ~ {{form.price_to}}
         </div>
         <div>
             입주가능일
-            <input type="date" name="date_from" id="date_from"> ~
-            <input type="date" name="date_to" id="date_to">
+            {{form.date_from}} ~ {{form.date_to}}
         </div>
-        <input type="submit" value="초기화">
+        <input type="reset" value="초기화">
         <input type="submit" value="검색">
     </form>
 </div>
@@ -120,5 +106,5 @@
 
 {% block javascript %}
 <script src="{% static 'javascript/clickCheckInput.js' %}"></script>
-<script src="{% static 'javascript/changeDateInput.js' %}"></script>
+<script src="{% static 'javascript/changeFromToInput.js' %}"></script>
 {% endblock javascript %}
