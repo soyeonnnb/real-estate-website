@@ -10,8 +10,9 @@ class Question(TimeStampedModel):
     title = models.CharField(max_length=150)
     phone = models.CharField(max_length=12)
     secret = models.BooleanField(default=False)
+    secret_number = models.CharField(blank=True, null=True, max_length=30)
     text = models.TextField()
-    is_answered = models.BooleanField()
+    is_answered = models.BooleanField(default=False)
 
 
 def question_directory_path(instance, filename):

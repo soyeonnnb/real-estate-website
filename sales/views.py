@@ -109,5 +109,4 @@ class SaleCreateView(CreateView):
         return context
 
     def get_success_url(self):
-        print(type(self.object))
         return reverse_lazy("sales:list")

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_title %}
+문의글 상세보기
+{% endblock page_title %}
+
+
+{% block content %}
+<h2>문의글 보기</h2>
+<table>
+    <tr>
+        <th>제목</th>
+        <td>{{question.title}}</td>
+    </tr>
+    <tr>
+        <th>전화번호</th>
+        <td>{{question.phone}}</td>
+    </tr>
+    <tr>
+        <th>비밀글 여부</th>
+        <td>{{question.secret}}</td>
+    </tr>
+    <tr>
+        <th>내용</th>
+        <td>{{question.text}}</td>
+    </tr>
+    <tr>
+        <th>답변 여부</th>
+        <td>{{question.is_answered}}</td>
+    </tr>
+</table>
+{% if user.is_authenticated %}
+<a href="">문의 확인 처리</a>
+{% endif %}
+
+{% endblock %}

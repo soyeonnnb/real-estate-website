@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_title %}
+문의하기
+{% endblock page_title %}
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="문의하기">
+</form>
+
+{% endblock %}
