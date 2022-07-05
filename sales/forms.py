@@ -56,6 +56,7 @@ class SaleForm(forms.ModelForm):
         model = models.Sale
         fields = (
             "address",
+            "complex_sub",
             "type",
             "deposit",
             "amount",

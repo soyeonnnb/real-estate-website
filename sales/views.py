@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import View, DetailView, UpdateView
+from django.views.generic import View, DetailView, UpdateView, CreateView
 from django.core.paginator import Paginator
 from django.urls import resolve, reverse, reverse_lazy
 from django.db.models import Q
@@ -89,6 +89,20 @@ class SaleUpdateView(UpdateView):
     def get_context_data(self, *args, **kwargs):
         context = super(SaleUpdateView, self).get_context_data(*args, **kwargs)
         context["page_title"] = "매물 수정"
+        return context
+
+    def get_success_url(self):
+        return reverse_lazy("sales:detail", kwargs={"pk": self.object.pk})
+
+
+class SaleCreateView(CreateView):
+
+    model = models.Sale
+    form_class = forms.SaleForm
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(SaleCreateView, self).get_context_data(*args, **kwargs)
+        context["page_title"] = "매물 생성"
         return context
 
     def get_success_url(self):
