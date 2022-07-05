@@ -44,6 +44,20 @@ class Complex(TimeStampedModel):
     def __str__(self):
         return self.name
 
+    # 면적 종류
+    def get_areas(self):
+        return self.complex_area.all()
+
+    # 세대 수
+    def get_apartment(self):
+        all_areas = self.complex_area.all()
+        all_apartments = 0
+        for area in all_areas:
+            subs = area.get_complex_sub()
+            for sub in subs:
+                all_apartments += sub.apartment
+        return all_apartments
+
     class Meta:
         verbose_name_plural = "Complexes"
 
@@ -62,6 +76,9 @@ class ComplexArea(TimeStampedModel):
 
     def __str__(self):
         return f"{self.complex} - {round(self.exclusive_private_area, 3)}"
+
+    def get_complex_sub(self):
+        return self.complex_sub.all()
 
 
 class ComplexSub(TimeStampedModel):

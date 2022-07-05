@@ -28,7 +28,7 @@
             <!-- 다음 페이지 -->
             {% if page_obj.has_next %}
             <li>
-                <a href="?page={{page_obj_name.next_page_number}}">Next</a>
+                <a href="?page={{page_obj.next_page_number}}">Next</a>
             </li>
             {% else %}
             <li>

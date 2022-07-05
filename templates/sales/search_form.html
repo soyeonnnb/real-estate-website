@@ -1,0 +1,23 @@
+<form method="GET" action="" id="search_sale_form">
+    {% csrf_token %}
+    <div>
+        분류<br>
+        <span id="type_all" class="search_all_checked">전체</span>
+        {{form.sale_type}}
+    </div>
+    <div>
+        위치<br>
+        <span id="address_all" class="search_all_checked">전체</span>
+        {{form.address}}
+    </div>
+    <div>
+        가격
+        {{form.price_from}} ~ {{form.price_to}}
+    </div>
+    <div>
+        입주가능일
+        {{form.date_from}} ~ {{form.date_to}}
+    </div>
+    <input type="reset" value="초기화">
+    <input type="submit" value="검색">
+</form>

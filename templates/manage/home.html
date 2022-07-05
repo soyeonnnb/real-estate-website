@@ -10,7 +10,7 @@
 <h2>관리자페이지</h2>
 
 <h2>단지</h2>
-<a href="">전체보기</a><br>
+<a href="{% url 'complexes:list' %}">전체보기</a><br>
 {% for complex in complex_list %}
 {{complex.name}}<br>
 {% endfor %}

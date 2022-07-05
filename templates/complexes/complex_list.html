@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+단지 리스트
+{% endblock page_title %}
+
+{% block content %}
+<h2>단지 리스트</h2>
+<a href="">추가</a>
+<table>
+    <thead>
+        <tr>
+            <th>종류</th>
+            <th>이름</th>
+            <th>주차대 수</th>
+            <th>주소</th>
+            <th>면적</th>
+            <th>세대 수</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for complex in complexes %}
+        <tr>
+            <td>{{complex.category}}</td>
+            <td><a href="{% url 'complexes:detail' pk=complex.pk%}">{{complex.name}}</a></td>
+            <td>{{complex.parking}}</td>
+            <td>{{complex.address}}</td>
+            <td>{% for a in complex.get_areas %}
+                {{a.supply_area}}
+                {% endfor %}
+            </td>
+            <td>{{complex.get_apartment}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% include 'partials/paginator.html' %}
+{% endblock %}

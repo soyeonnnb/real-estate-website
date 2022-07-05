@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_title %}
+매물 상세
+{% endblock page_title %}
+
+{% block content %}
+<h3>매물 상세</h3>
+{% if user.is_authenticated %}
+<a href="{% url 'sales:update' pk=sale.pk %}">수정</a>
+<a href="">삭제</a>
+{% endif %}
+<table border="1">
+    <tr>
+        <th>건물</th>
+        <td>{{sale.complex_sub}}</td>
+    </tr>
+    <tr>
+        <th>주소</th>
+        <td>{{sale.address}}</td>
+    </tr>
+    <tr>
+        <th>타입</th>
+        <td>{{sale.type}}</td>
+    </tr>
+    {% if sale.type == "monthly" %}
+    <tr>
+        <th>보증금</th>
+        <td>{{sale.deposit}}</td>
+    </tr>
+    {% endif %}
+    <tr>
+        <th>가격</th>
+        <td>{{sale.amount}}</td>
+    </tr>
+    <tr>
+        <th>층</th>
+        <td>{{sale.floor}}</td>
+    </tr>
+    <tr>
+        <th>융자</th>
+        <td>{{sale.loan}}</td>
+    </tr>
+    <tr>
+        <th>관리비</th>
+        <td>{{sale.administrative_expense}}</td>
+    </tr>
+    <tr>
+        <th>입주 가능일</th>
+        <td>{{sale.available_date}}</td>
+    </tr>
+    <tr>
+        <th>설명</th>
+        <td>{{sale.description}}</td>
+    </tr>
+    <tr>
+        <th>판매완료 여부</th>
+        <td>{{sale.is_sold}}</td>
+    </tr>
+</table>
+{% for image in sale.sale_image.all %}
+<img src="{% static image.image %}" width="100px">
+{% endfor %}
+{% endblock %}

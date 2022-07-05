@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_title %}
+단지 상세
+{% endblock page_title %}
+
+{% block content %}
+<h3>단지 상세</h3>
+{% if user.is_authenticated %}
+<a href="">수정</a>
+<a href="">삭제</a>
+{% endif %}
+<table border="1">
+    <tr>
+        <th>종류</th>
+        <td>{{complex.category}}</td>
+    </tr>
+    <tr>
+        <th>단지 명</th>
+        <td>{{complex.name}}</td>
+    </tr>
+    <tr>
+        <th>주차 대 수</th>
+        <td>{{complex.parking}}</td>
+    </tr>
+    <tr>
+        <th>난방 방식</th>
+        <td>{{complex.heating}}</td>
+    </tr>
+    <tr>
+        <th>사용 승인일</th>
+        <td>{{complex.approval_use}}</td>
+    </tr>
+    <tr>
+        <th>건설 회사</th>
+        <td>{{complex.company}}</td>
+    </tr>
+    <tr>
+        <th>주소</th>
+        <td>{{complex.address}}</td>
+    </tr>
+</table>
+{% for image in complex.complex_image.all %}
+<img src="{% static image.image %}" width="100px">
+{% endfor %}
+{% endblock %}

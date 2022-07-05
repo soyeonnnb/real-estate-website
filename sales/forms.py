@@ -1,6 +1,8 @@
 from django import forms
 import datetime
 
+from . import models
+
 
 class SearchForm(forms.Form):
 
@@ -47,3 +49,21 @@ class SearchForm(forms.Form):
     date_to = forms.DateField(
         widget=forms.DateInput(attrs={"type": "date"}), label="", required=False
     )
+
+
+class SaleForm(forms.ModelForm):
+    class Meta:
+        model = models.Sale
+        fields = (
+            "address",
+            "type",
+            "deposit",
+            "amount",
+            "floor",
+            "loan",
+            "administrative_expense",
+            "available_date",
+            "description",
+            "one_description",
+            "is_sold",
+        )
