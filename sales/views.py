@@ -7,6 +7,8 @@ from django.db.models import Q
 from . import models
 from . import forms
 
+from complexes import models as complexes_models
+
 
 class SaleHomeView(View):
     def get(self, request):
@@ -103,7 +105,9 @@ class SaleCreateView(CreateView):
     def get_context_data(self, *args, **kwargs):
         context = super(SaleCreateView, self).get_context_data(*args, **kwargs)
         context["page_title"] = "매물 생성"
+        context["complex_sub_list"] = complexes_models.ComplexSub.objects.all()
         return context
 
     def get_success_url(self):
-        return reverse_lazy("sales:detail", kwargs={"pk": self.object.pk})
+        print(type(self.object))
+        return reverse_lazy("sales:list")

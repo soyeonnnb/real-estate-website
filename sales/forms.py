@@ -2,6 +2,7 @@ from django import forms
 import datetime
 
 from . import models
+from complexes import models as complexes_models
 
 
 class SearchForm(forms.Form):
@@ -55,9 +56,8 @@ class SaleForm(forms.ModelForm):
     class Meta:
         model = models.Sale
         fields = (
-            "address",
-            "complex_sub",
             "type",
+            "address",
             "deposit",
             "amount",
             "floor",
@@ -68,3 +68,28 @@ class SaleForm(forms.ModelForm):
             "one_description",
             "is_sold",
         )
+        widgets = {
+            "deposit": forms.NumberInput(attrs={"min": 0}),
+            "amount": forms.NumberInput(attrs={"min": 0}),
+            "loan": forms.NumberInput(attrs={"min": 0}),
+            "administrative_expense": forms.NumberInput(attrs={"min": 0}),
+            "available_date": forms.DateInput(attrs={"type": "date"}),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super(SaleForm, self).__init__(*args, **kwargs)
+        self.fields["category"] = forms.ModelChoiceField(
+            queryset=complexes_models.Category.objects.all()
+        )
+        self.fields["complex"] = forms.ModelChoiceField(
+            queryset=complexes_models.Complex.objects.all()
+        )
+        self.fields["complex_sub"] = forms.ModelChoiceField(
+            queryset=complexes_models.ComplexSub.objects.all()
+        )
+
+    def save(self, *args, **kwargs):
+        sale = super().save(commit=False)
+        complex_sub = self.cleaned_data.get("complex_sub")
+        sale.complex_sub = complex_sub
+        sale.save()
