@@ -1,1 +1,21 @@
-@import url(btn.css);
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+@import "reset.css";
+@import "variables.css";
+
+/* Components */
+@import "components/btn.css";
+@import "components/navbar.css";
+
+body {
+    display:grid;
+    grid-template-columns: 1fr;
+}
+main{
+    background-color: antiquewhite;
+    padding:0 20px;
+    margin-top:20px;
+    display:grid;
+    grid-template-columns: 1fr 3fr 1fr;
+}
