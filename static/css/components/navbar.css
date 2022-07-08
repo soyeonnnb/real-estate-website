@@ -5,6 +5,7 @@ nav {
     white-space:nowrap;
     font-weight:700;
     font-size:15px;
+    background-color: rgb(255, 219, 56);
 }
 nav>div{
     display: flex;
@@ -82,6 +83,9 @@ nav>div:nth-child(2){
 }
 
 /* navbar-login */
+.navbar-login {
+    z-index:1;
+}
 .navbar-login div {
     margin-top:-40px;
 }
