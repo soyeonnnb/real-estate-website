@@ -1,5 +1,7 @@
 <form action="" method="POST">
     {% csrf_token %}
-    {{form.as_p}}
+    <input type="text" placeholder="이름을 입력해주세요." name="name">
+    <input type="text" placeholder="전화번호를 입력해주세요." name="phone">
+    <textarea placeholder="문의하실 내용을 입력해주세요" name="text"></textarea>
     <input type="submit" value="문의하기">
 </form>

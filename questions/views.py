@@ -20,6 +20,13 @@ class QuestionDetailView(DetailView):
     model = models.Question
 
 
+def question_create_view(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        phone = request.POST.get("phone")
+        text = request.POST.get("text")
+
+
 class QuestionCreateView(CreateView):
 
     model = models.Question
