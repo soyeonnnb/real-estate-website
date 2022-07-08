@@ -5,6 +5,6 @@ app_name = "questions"
 
 urlpatterns = [
     path("list/", views.QuestionListView.as_view(), name="list"),
-    path("create/", views.QuestionCreateView.as_view(), name="create"),
+    path("create/", views.question_create_view, name="create"),
     path("<int:pk>/detail/", views.QuestionDetailView.as_view(), name="detail"),
 ]

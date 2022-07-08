@@ -1,4 +1,4 @@
-<form action="" method="POST">
+<form action="{% url 'questions:create' %}?next={{request.path}}" method="POST">
     {% csrf_token %}
     <input type="text" placeholder="이름을 입력해주세요." name="name">
     <input type="text" placeholder="전화번호를 입력해주세요." name="phone">

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic import ListView, DetailView, CreateView
+from django.http import HttpResponseRedirect
 
 from . import models
 from . import forms
@@ -25,13 +26,6 @@ def question_create_view(request):
         name = request.POST.get("name")
         phone = request.POST.get("phone")
         text = request.POST.get("text")
-
-
-class QuestionCreateView(CreateView):
-
-    model = models.Question
-    form_class = forms.QuestionCreateForm
-    template_name = "questions/question_create.html"
-
-    def get_success_url(self):
-        return reverse("questions:detail", kwargs={"pk": self.object.pk})
+        question = models.Question.objects.create(name=name, phone=phone, text=text)
+        question.save()
+        return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))
