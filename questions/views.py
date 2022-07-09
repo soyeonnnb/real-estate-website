@@ -4,7 +4,6 @@ from django.views.generic import ListView, DetailView, CreateView
 from django.http import HttpResponseRedirect
 
 from . import models
-from . import forms
 
 # Create your views here.
 class QuestionListView(ListView):

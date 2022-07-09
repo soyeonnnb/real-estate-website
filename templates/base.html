@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block page_title %}{% endblock page_title %}</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
 </head>
 
 <body>
@@ -15,10 +16,11 @@
         {% include 'partials/navbar.html' %}
     </header>
     <main>
+
         <div class="sidebar">
             {% include 'partials/sidebar.html' %}
         </div>
-        <div>
+        <div class="main" id="main">
             {% block content %}
             {% endblock %}
         </div>
@@ -28,7 +30,8 @@
     </footer>
     {% block javascript %}
     {% endblock javascript %}
-
+    <script src="https://kit.fontawesome.com/38082222d0.js" crossorigin="anonymous"></script>
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
 </body>
 
 </html>

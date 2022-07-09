@@ -37,9 +37,7 @@ PROJECT_APPS = [
     "users.apps.UsersConfig",
     "managements.apps.ManagementsConfig",
 ]
-THIRD_PARTY_APPS = [
-    "django_seed",
-]
+THIRD_PARTY_APPS = ["django_seed", "fontawesomefree"]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
 

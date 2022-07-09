@@ -9,7 +9,7 @@
 <a href="{% url 'questions:create' %}">문의하기</a>
 <h2>문의리스트</h2>
 {% for question in questions %}
-<a href="{% url 'questions:detail' pk=question.pk %}">{{question.title}}</a><br>
+<a href="{% url 'questions:detail' pk=question.pk %}">{{question.name}}</a><br>
 {% endfor %}
 {% include 'partials/paginator.html' %}
 {% endblock %}

@@ -1,0 +1,34 @@
+/* toggle box */
+.manage-toggle {
+    margin-top: 20px;
+    display:flex;
+    justify-content: center;
+}
+.manage-toggle>div{
+    border:1px solid var(--gray-light);
+    width:120px;
+    height:120px;
+    margin:50px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color:var(--gray-light);
+    border-radius: 2px;
+    cursor:pointer;
+}
+.manage-toggle>div:hover{
+    color:var(--purple-light);
+    border-color: var(--purple-light);
+}
+.manage-toggle>div.manage-toggle__now{
+    color:var(--purple);
+    border-color: var(--purple);
+}
+.manage-toggle span{
+    display:inline-block;
+    margin-top: 13px;
+}
+.manage-toggle-noshow {
+    display:none;
+}
