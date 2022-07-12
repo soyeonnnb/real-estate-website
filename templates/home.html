@@ -9,7 +9,11 @@ XX부동산
 {% block content %}
 <h2>최신 매물</h2>
 <a href="{% url 'sales:list' %}">최신 매물 더보기</a><br>
-{% for sale in sales %}
-{{sale.address}}<br>
-{% endfor %}
+<div class="sale-container">
+    {% for sale in sales %}
+    <div class="sale-card">
+        {{sale.address}}
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}

@@ -5,7 +5,6 @@ nav {
     white-space:nowrap;
     font-weight:700;
     font-size:15px;
-    background-color: rgb(255, 219, 56);
 }
 nav>div{
     display: flex;

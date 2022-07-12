@@ -6,11 +6,16 @@
 {% endblock page_title %}
 
 {% block content %}
-<h2>로그인 폼</h2>
-<form method="POST" action="">
-    {% csrf_token %}
-    {{form}}
-    <input type="submit">
-</form>
+<div class="login-page">
+    <div id="login-form">
+        <h2>관리자 로그인</h2>
+        <form method="POST" action="" class="login-form">
+            {% csrf_token %}
+            {{form.email}}
+            {{form.password}}
+            <input type="submit" class="login-btn" value="로그인">
+        </form>
+    </div>
+</div>
 
 {% endblock %}

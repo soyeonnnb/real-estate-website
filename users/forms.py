@@ -4,8 +4,16 @@ from . import models
 
 class LoginForm(forms.Form):
 
-    email = forms.EmailField(widget=forms.EmailInput())
-    password = forms.CharField(widget=forms.PasswordInput())
+    email = forms.EmailField(
+        widget=forms.EmailInput(
+            attrs={"class": "login-input", "placeholder": "E-mail", "label": ""},
+        )
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(
+            attrs={"class": "login-input", "placeholder": "Password", "label": ""}
+        )
+    )
 
     def clean(self):
         email = self.cleaned_data.get("email")

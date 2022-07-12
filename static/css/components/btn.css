@@ -5,3 +5,14 @@ background-color: aquamarine;
 .search_all_notchecked {
 background-color: antiquewhite;
 }
+
+.create-btn {
+    display:flex;
+    width:100px;
+    height:30px;
+    border:2px solid var(--red);
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+}

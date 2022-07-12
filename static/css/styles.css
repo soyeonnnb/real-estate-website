@@ -9,6 +9,8 @@
 @import "components/navbar.css";
 
 /* Screen */
+@import "screen/home.css";
+@import "screen/login.css";
 @import "screen/manage/home.css";
 
 body {

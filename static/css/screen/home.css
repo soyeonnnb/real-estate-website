@@ -1,0 +1,8 @@
+.sale-container {
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.sale-card {
+    background-color: aqua;
+    width:150px;
+}
