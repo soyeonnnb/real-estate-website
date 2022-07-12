@@ -1,8 +1,8 @@
-const dateFromInput = document.querySelector("#id_date_from");
-const dateToInput = document.querySelector("#id_date_to");
+const dateFromInput = document.querySelector("#id_basic-date_from");
+const dateToInput = document.querySelector("#id_basic-date_to");
 
-const priceFromInput = document.querySelector("#id_price_from");
-const priceToInput = document.querySelector("#id_price_to");
+const priceFromInput = document.querySelector("#id_basic-price_from");
+const priceToInput = document.querySelector("#id_basic-price_to");
 
 function changeFrom(type, toInput){
     const from_value = document.querySelector(`#id_${type}_from`).value;
