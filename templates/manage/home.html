@@ -7,23 +7,23 @@
 
 
 {% block content %}
-<div class="manage-toggle">
-    <div class="manage-toggle-box manage-toggle__now" id="manage-toggle-complex">
+<div class="toggle">
+    <div class="toggle-box toggle__now" id="toggle-0">
         <i class="fa-solid fa-building fa-2xl"></i>
         <span>단지</span>
     </div>
-    <div class="manage-toggle-box" id="manage-toggle-sale">
+    <div class="toggle-box" id="toggle-1">
         <i class="fa-solid fa-house-laptop fa-2xl"></i>
         <span>매물</span>
     </div>
-    <div class="manage-toggle-box" id="manage-toggle-question">
+    <div class="toggle-box" id="toggle-2">
         <i class="fa-solid fa-circle-question fa-2xl"></i>
         <span>문의</span>
     </div>
 </div>
 <br><br><br>
 
-<div id="manage-list-complex" class="manage-toggle-show">
+<div id="list-0" class="toggle-show">
     {% for complex in complex_list %}
     {{complex.name}}<br>
     {% endfor %}
@@ -31,7 +31,7 @@
     <a href="{% url 'complexes:list' %}">전체보기</a><br>
 </div>
 
-<div id="manage-list-sale" class="manage-toggle-noshow">
+<div id="list-1" class="toggle-noshow">
     <a href="{% url 'managements:sales_list' %}">전체보기</a><br>
     {% for sale in sale_list %}
     {{sale.address}}<br>
@@ -39,7 +39,7 @@
     <br><br>
 </div>
 
-<div id="manage-list-question" class="manage-toggle-noshow">
+<div id="list-2" class="toggle-noshow">
     <a href="{% url 'questions:list' %}">전체보기</a><br>
     {% for question in question_list %}
     {{question.name}}-{{question.phone}}<br>

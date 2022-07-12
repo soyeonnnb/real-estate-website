@@ -1,10 +1,10 @@
 /* toggle box */
-.manage-toggle {
+.toggle {
     margin-top: 20px;
     display:flex;
     justify-content: center;
 }
-.manage-toggle>div{
+.toggle>div{
     border:2px solid var(--gray-light);
     width:120px;
     height:120px;
@@ -17,18 +17,18 @@
     border-radius: 2px;
     cursor:pointer;
 }
-.manage-toggle>div:hover{
+.toggle>div:hover{
     color:var(--purple-light);
     border-color: var(--purple-light);
 }
-.manage-toggle>div.manage-toggle__now{
+.toggle>div.toggle__now{
     color:var(--purple);
     border-color: var(--purple);
 }
-.manage-toggle span{
+.toggle span{
     display:inline-block;
     margin-top: 13px;
 }
-.manage-toggle-noshow {
+.toggle-noshow {
     display:none;
 }
