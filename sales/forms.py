@@ -15,14 +15,6 @@ class SearchForm(forms.Form):
         (TYPE_JEONSE, "전세"),
         (TYPE_MONTHLY, "월세"),
     )
-    ADDRESS_EOMSA = "엄사"
-    ADDRESS_GEUMAM = "금암"
-    ADDRESS_DUMA = "두마"
-    ADDRESS_CHOICES = (
-        (ADDRESS_EOMSA, "엄사면"),
-        (ADDRESS_GEUMAM, "금암동"),
-        (ADDRESS_DUMA, "두마면"),
-    )
 
     sale_type = forms.MultipleChoiceField(
         choices=TYPE_CHOICES,
@@ -32,14 +24,7 @@ class SearchForm(forms.Form):
         label="",
         required=True,
     )
-    address = forms.MultipleChoiceField(
-        choices=ADDRESS_CHOICES,
-        widget=forms.CheckboxSelectMultiple(
-            attrs={"class": "search-address-btn", "checked": ""}
-        ),
-        label="",
-        required=True,
-    )
+
     price_from = forms.IntegerField(label="", initial=0, min_value=0, required=False)
     price_to = forms.IntegerField(
         label="", initial=1000000000, min_value=0, required=False
@@ -49,6 +34,34 @@ class SearchForm(forms.Form):
     )
     date_to = forms.DateField(
         widget=forms.DateInput(attrs={"type": "date"}), label="", required=False
+    )
+
+
+class SearchApartmentForm(forms.Form):
+    apartments = forms.ModelMultipleChoiceField(
+        queryset=complexes_models.Complex.objects.all()
+    )
+
+
+class SearchNotApartmentForm(forms.Form):
+
+    ADDRESS_EOMSA = "엄사"
+    ADDRESS_GEUMAM = "금암"
+    ADDRESS_DUMA = "두마"
+    ADDRESS_DAESIL = "대실"
+    ADDRESS_CHOICES = (
+        (ADDRESS_DAESIL, "대실지구"),
+        (ADDRESS_GEUMAM, "금암동"),
+        (ADDRESS_DUMA, "두마면"),
+        (ADDRESS_EOMSA, "엄사면"),
+    )
+    address = forms.MultipleChoiceField(
+        choices=ADDRESS_CHOICES,
+        widget=forms.CheckboxSelectMultiple(
+            attrs={"class": "search-address-btn", "checked": ""}
+        ),
+        label="",
+        required=True,
     )
 
 

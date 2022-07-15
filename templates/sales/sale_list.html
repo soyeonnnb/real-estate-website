@@ -5,13 +5,44 @@
 {% endblock page_title %}
 
 {% block content %}
-<h3>
-    매물목록
-</h3>
+<div class="toggle">
+    <div class="toggle-box toggle__now" id="toggle-0">
+        <i class="fa-solid fa-building fa-2xl"></i>
+        <span>아파트</span>
+    </div>
+    <div class="toggle-box" id="toggle-1">
+        <i class="fa-solid fa-house-laptop fa-2xl"></i>
+        <span>기타</span>
+    </div>
+</div>
 
 <div style="border:1px solid black">
     <h4>검색</h4>
-    {% include 'sales/search_form.html' %}
+    <form action="{{url}}" method="GET" id="search-form">
+        <div>
+            분류<br>
+            <span id="type_all" class="search_all_checked">전체</span>
+            {{form.sale_type}}
+        </div>
+        <div id="list-0" class="toggle-show">
+            {% include 'sales/search_apartment_form.html' %}
+        </div>
+        <div id="list-1" class="toggle-noshow">
+            {% include 'sales/search_not_apartment_form.html' %}
+        </div>
+        <div>
+            가격
+            {{form.price_from}} ~ {{form.price_to}}
+        </div>
+        <div>
+            입주가능일
+            {{form.date_from}} ~ {{form.date_to}}
+        </div>
+        <div>
+            <input type="reset" value="초기화">
+            <input type="submit" value="검색">
+        </div>
+    </form>
 </div>
 <table>
     <thead>
@@ -64,8 +95,3 @@
 {% include 'partials/paginator.html' with page_obj=sales %}
 
 {% endblock %}
-
-{% block javascript %}
-<script src="{% static 'javascript/clickCheckInput.js' %}"></script>
-<script src="{% static 'javascript/changeFromToInput.js' %}"></script>
-{% endblock javascript %}

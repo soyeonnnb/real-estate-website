@@ -7,13 +7,41 @@ XX부동산
 
 
 {% block content %}
-<h2>최신 매물</h2>
-<a href="{% url 'sales:list' %}">최신 매물 더보기</a><br>
+<div class="home-title">
+    <h2>최신 매물</h2>
+    <a href="{% url 'sales:list' %}">최신 매물 더보기 <i class="fa-solid fa-arrow-right-long"></i></a>
+</div>
 <div class="sale-container">
     {% for sale in sales %}
-    <div class="sale-card">
-        {{sale.address}}
-    </div>
+    <a class="sale-card" href="{% url 'sales:detail' pk=sale.pk %}">
+        <img src="{% get_static_prefix%}{{sale.first_image.image}}" alt="{{sale.pk}}이미지" class="sale-card__img">
+        <span class="sale-card__address">
+            {{sale.complex_sub.complex_area.complex.name}} {{sale.complex_sub.building}}동
+        </span>
+        <div class="sale-card__money">
+            <div class="sale-card__type">
+                {% if sale.type == 'monthly' %}
+                <span class="sale-card__type-monthly">
+                    월세
+                </span>
+                {% elif sale.type == 'jeonse' %}
+                <span class="sale-card__type-jeonse">
+                    전세
+                </span>
+                {% else %}
+                <span class="sale-card__type-sale">
+                    매매
+                </span>
+                {% endif %}
+            </div>
+            <span class="sale-card__amount">
+                {% if sale.type == 'monthly' %}
+                {{sale.deposit}} /
+                {% endif %}
+                {{sale.amount}}
+            </span>
+        </div>
+    </a>
     {% endfor %}
 </div>
 {% endblock %}

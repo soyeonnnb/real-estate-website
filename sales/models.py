@@ -38,6 +38,10 @@ class Sale(TimeStampedModel):
     one_description = models.TextField()
     is_sold = models.BooleanField()
 
+    def first_image(self):
+        images = self.sale_image.all()
+        return images[0]
+
 
 def sale_directory_path(instance, filename):
     n = random.randint(10000, 99999)

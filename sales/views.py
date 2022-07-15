@@ -62,7 +62,9 @@ class SaleHomeView(View):
                     {"form": form, "sales": sales},
                 )
         else:
-            form = forms.SearchForm()
+            form = forms.SearchForm(prefix="basic")
+            apartment_form = forms.SearchApartmentForm(prefix="apartment")
+            not_apartment_form = forms.SearchNotApartmentForm(prefix="not_apartment")
             if current_url.app_names[0] == "sales":
                 sales_list = models.Sale.objects.filter(is_sold=False).order_by("-pk")
             else:
@@ -73,7 +75,12 @@ class SaleHomeView(View):
         return render(
             request,
             template_name,
-            {"form": form, "sales": sales},
+            {
+                "form": form,
+                "apartment_form": apartment_form,
+                "not_apartment_form": not_apartment_form,
+                "sales": sales,
+            },
         )
 
 

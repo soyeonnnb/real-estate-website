@@ -1,8 +1,78 @@
+.home-title {
+    display:flex;
+    justify-content: space-between;
+    margin-bottom:20px;
+    align-items: flex-end;
+    margin-top:40px;
+}
+.home-title h2{
+    font-size: 30px;
+    font-weight:700;
+}
 .sale-container {
     display:grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap:30px 10px;
 }
 .sale-card {
-    background-color: aqua;
-    width:150px;
+    border:none;
+    border-bottom:2.5px solid var(--purple-light);
+    width:260px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:10px;
+    padding-bottom:10px;
+    cursor:pointer;
+}
+.sale-card .sale-card__img {
+    width:100%;
+    height:180px;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    object-fit : cover;
+    border-radius:5px;
+    margin-bottom:10px;
+}
+.sale-card__address {
+    display:inline-block;
+    width:100%;
+    text-align:left;
+    font-size:13px;
+    font-weight:700;
+    color:var(--gray);
+}
+.sale-card__money {
+    display:flex;
+    width:100%;
+    margin-top:16px;
+    
+}
+.sale-card__type {
+    margin-right:10px;
+    border-radius: 2px;
+}
+.sale-card__type>span {
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 3px;
+    padding:1px 8px;
+}
+.sale-card__type-monthly {
+    border-color: rgb(209, 40, 40);
+}
+.sale-card__type-jeonse {
+    border-color: #5521e2;
+
+}
+.sale-card__type-sale {
+    border-color: rgb(35, 151, 83);
+
+}
+
+.sale-card__amount {
+    display:flex;
 }
