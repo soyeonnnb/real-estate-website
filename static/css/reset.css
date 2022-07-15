@@ -139,4 +139,5 @@ h4,
 h5,
 h6 {
   cursor:default;
+  white-space: nowrap;
 }

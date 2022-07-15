@@ -9,6 +9,10 @@
     font-size: 30px;
     font-weight:700;
 }
+.home-title a {
+    width:145px;
+    margin-left:20px;
+}
 .sale-container {
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
