@@ -1,0 +1,96 @@
+#sidebar {
+    display:flex;
+    justify-content: center;
+    padding-top:40px;
+}
+.sidebar-form {
+    display:flex;
+    width:230px;
+    flex-direction: column;
+    align-items: center;
+    margin-right:30px;
+    border:1px solid black; 
+    padding:25px 15px;
+}
+.sidebar-form > h4 {
+    margin-bottom:25px;
+}
+.sidebar-form input[type="text"], 
+.sidebar-form textarea {
+    width:220px;
+    border:1px solid var(--gray);
+    margin-bottom:10px;
+    padding:5px;
+}
+.sidebar-form input[type="text"]:hover,
+.sidebar-form textarea:hover  {
+    border-color: var(--purple-light);
+}
+.sidebar-form input[type="text"]:focus,
+.sidebar-form textarea:focus{
+    border-color: var(--purple-light);
+    box-shadow: 0 0 10px -1px var(--purple-light);
+    outline-style: none;
+}
+.sidebar-form textarea {
+    resize:vertical;
+}
+.sidebar-form__check {
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+}
+.sidebar-form__check>div {
+    display:flex;
+    align-items: center;
+}
+.sidebar-form__check-input {
+    margin-right:5px;
+}
+.sidebar-form__check label {
+    font-size:12px;
+    line-height: 24px;
+}
+.sidebar-form__check a {
+    display:inline-block;
+    width:240px;
+}
+.sidebar-form__check button {
+    background-color: rgba(0,0,0,0);
+    border:none;
+    border-bottom:1px solid var(--purple-light);
+    cursor:pointer;
+    color:var(--purple-light);
+    font-size: 11px;
+}
+.sidebar-form>input[type="submit"] {
+    margin-top:10px;
+    width:230px;
+    height:30px;
+    background-color: var(--purple);
+    color:white;
+    font-weight: 700;
+    border:none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.display-none {
+    display:none;
+}
+
+.sidebar-form__check-toggle-text {
+    font-size: 12px;
+}
+.sidebar-form__check-toggle-text table {
+    margin:10px 0;
+    border-collapse: collapse;
+}
+.sidebar-form__check-toggle-text th {
+    background-color: var(--gray-light);
+    padding:3px 8px;
+}
+.sidebar-form__check-toggle-text th,
+.sidebar-form__check-toggle-text td {
+    vertical-align: middle;
+    border-bottom:1px solid var(--gray);
+}

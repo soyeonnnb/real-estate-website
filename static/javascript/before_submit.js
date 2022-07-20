@@ -12,4 +12,13 @@ function setSearchAction(event){
     return url;
 
 }
+function inputOnlyNumber(event){
+    if(event.key === '.' 
+     || event.key === '-'
+     || event.key >= 0 && event.key <= 9) {
+    return true;
+  }
+  return false;
+}
+
 searchFormSubmit.addEventListener("submit", setSearchAction);

@@ -1,4 +1,6 @@
 const toggleBoxBtns = document.querySelectorAll(".toggle-box");
+const sidebarVisibleBtn = document.querySelector("#sidebar-form__check-toggle");
+const sidebarVisibleText = document.querySelector(".sidebar-form__check-toggle-text");
 
 function removeToggleNow(){
     const previousToggleNow = document.querySelector(".toggle__now");
@@ -24,7 +26,16 @@ function toggle(){
         }
     }
 }
+function clickVisibleBtn(event) {
+    event.preventDefault();
+    if (sidebarVisibleText.classList.contains("display-none")){
+        sidebarVisibleText.classList.remove("display-none");
+    } else {
+        sidebarVisibleText.className += " display-none";
+    }
+}
 
 [].forEach.call(toggleBoxBtns,function(btn){ 
 	btn.addEventListener("click", toggle); 
 })
+sidebarVisibleBtn.addEventListener("click", clickVisibleBtn);

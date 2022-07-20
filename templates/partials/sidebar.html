@@ -1,7 +1,40 @@
-<form action="{% url 'questions:create' %}?next={{request.path}}" method="POST">
-    {% csrf_token %}
-    <input type="text" placeholder="이름을 입력해주세요." name="name">
-    <input type="text" placeholder="전화번호를 입력해주세요." name="phone">
-    <textarea placeholder="문의하실 내용을 입력해주세요" name="text"></textarea>
-    <input type="submit" value="문의하기">
-</form>
+<div id="sidebar-form">
+    <form action="{% url 'questions:create' %}?next={{request.path}}" method="POST" class="sidebar-form">
+        <h4>상담 문의</h4>
+        {% csrf_token %}
+        <input type="text" placeholder="이름을 입력해주세요" name="name" required>
+        <input type="text" placeholder="전화번호를 입력해주세요" name="phone" onkeypress='return inputOnlyNumber(event)' required>
+        <textarea placeholder="문의하실 내용을 입력해주세요" name="text" required></textarea>
+        <div id="sidebar-form__check" class="sidebar-form__check">
+            <div>
+                <input type="checkbox" id="sidebar-form__check-input" class="sidebar-form__check-input" required>
+                <label for="sidebar-form__check-input">
+                    개인정보 수집/이용 동의(필수)
+                </label>
+            </div>
+            <button id="sidebar-form__check-toggle">
+                보기
+            </button>
+        </div>
+        <div class="sidebar-form__check-toggle-text display-none">
+            <table>
+                <tbody>
+                    <tr>
+                        <th>항목</th>
+                        <td>이름, 연락처, 문의내용</td>
+                    </tr>
+                    <tr>
+                        <th>수집/이용<br>목적</th>
+                        <td>매물문의상담 서비스 이용</td>
+                    </tr>
+                    <tr>
+                        <th>보유/이용<br>기간</th>
+                        <td>상담완료 1개월 후 파기</td>
+                    </tr>
+                </tbody>
+            </table>
+            <span>*귀하는 개인정보 수집에 동의에 거부할 권리가 있으며, 동의를 거부할 경우 상담을 받으실 수 없습니다.</span>
+        </div>
+        <input type="submit" value="문의하기" class="sidebar-form__submit">
+    </form>
+</div>
